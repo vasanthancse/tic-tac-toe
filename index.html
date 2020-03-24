@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        color:coral;
+    }
+    .box{
+        height: 320px;
+        width: 350px;
+        transform: translate(-50%,-50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        
+    }
+    .box div{
+        height: 100px;
+        width: 100px;
+        margin: auto;
+        padding: auto;
+        float: left;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size:50px;
+    }
+    .b2,.b5,.b8,.b9,.b6,.b3{
+        border-left: 5px solid black;
+    }
+    .b1,.b2,.b3,.b4,.b5,.b6{
+        border-bottom: 5px solid black;
+    }
+    .box div:hover{
+        
+    }
+ section{
+     font-size: 55px;
+     color:coral;
+     text-align: center;
+ }
+</style>
+<body>
+    <div class="box">
+        <section>Tic-Tac-Toe</section>
+        <div class="b1" id="1"></div>
+        <div class="b2" id="2"></div>
+        <div class="b3" id="3"></div>
+        <div class="b4" id="4"></div>
+        <div class="b5" id="5"></div>
+        <div class="b6" id="6"></div>
+        <div class="b7" id="7"></div>
+        <div class="b8" id="8"></div>
+        <div class="b9" id="9"></div>
+        <section class="win">Winner is</section>
+    </div>
+  
+
+    <script>
+        p1=document.getElementById("1");
+        p2=document.getElementById("2");
+        p3=document.getElementById("3");
+        p4=document.getElementById("4");
+        p5=document.getElementById("5");
+        p6=document.getElementById("6");
+        p7=document.getElementById("7");
+        p8=document.getElementById("8");
+        p9=document.getElementById("9");
+        winField=document.querySelector(".win");
+        code =document.querySelectorAll(".box div");
+        var n=0;   
+            for(var i=0;i<code.length;i++){
+                code[i].addEventListener('click',function(){
+            if(n%2==0){
+                this.innerHTML='X';
+                this.style.color="red"
+                n++;
+               
+            }
+            else{
+                this.innerHTML='O'
+                this.style.color="green";
+                n++;
+                
+            };
+            win();
+                });
+            }
+
+
+
+
+
+
+
+           function win(){
+            if(
+            (p1.innerHTML=="X" && p2.innerHTML=="X" &&p3.innerHTML=="X") ||
+            (p1.innerHTML=="X" && p2.innerHTML=="X" &&p3.innerHTML=="X") ||
+            (p4.innerHTML=="X" && p5.innerHTML=="X" &&p6.innerHTML=="X") ||
+            (p7.innerHTML=="X" && p8.innerHTML=="X" &&p9.innerHTML=="X") ||
+            (p1.innerHTML=="X" && p4.innerHTML=="X" &&p7.innerHTML=="X") ||
+            (p2.innerHTML=="X" && p5.innerHTML=="X" &&p8.innerHTML=="X") ||
+            (p3.innerHTML=="X" && p6.innerHTML=="X" &&p9.innerHTML=="X") ||
+            (p1.innerHTML=="X" && p5.innerHTML=="X" &&p9.innerHTML=="X") ||
+            (p3.innerHTML=="X" && p5.innerHTML=="X" &&p7.innerHTML=="X")) {
+                winField.innerHTML+=" X";
+                setTimeout(delay,500);
+            }
+         else if(
+            (p1.innerHTML=="O" && p2.innerHTML=="O" &&p3.innerHTML=="O") ||
+            (p1.innerHTML=="O" && p2.innerHTML=="O" &&p3.innerHTML=="O") ||
+            (p4.innerHTML=="O" && p5.innerHTML=="O" &&p6.innerHTML=="O") ||
+            (p7.innerHTML=="O" && p8.innerHTML=="O" &&p9.innerHTML=="O") ||
+            (p1.innerHTML=="O" && p4.innerHTML=="O" &&p7.innerHTML=="O") ||
+            (p2.innerHTML=="O" && p5.innerHTML=="O" &&p8.innerHTML=="O") ||
+            (p3.innerHTML=="O" && p6.innerHTML=="O" &&p9.innerHTML=="O") ||
+            (p1.innerHTML=="O" && p5.innerHTML=="O" &&p9.innerHTML=="O") ||
+            (p3.innerHTML=="O" && p5.innerHTML=="O" &&p7.innerHTML=="O")){
+                winField.innerHTML+=" O";
+                setTimeout(delay,500)
+           }
+           }
+           function delay(){
+             window.location.reload();
+           }
+
+    </script>
+</body>
+</html>
